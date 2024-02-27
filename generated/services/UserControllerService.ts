@@ -3,6 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { BaseResponse_boolean_ } from '../models/BaseResponse_boolean_';
+import type { BaseResponse_List_User_ } from '../models/BaseResponse_List_User_';
+import type { BaseResponse_List_UserVO_ } from '../models/BaseResponse_List_UserVO_';
 import type { BaseResponse_LoginUserVO_ } from '../models/BaseResponse_LoginUserVO_';
 import type { BaseResponse_long_ } from '../models/BaseResponse_long_';
 import type { BaseResponse_Page_User_ } from '../models/BaseResponse_Page_User_';
@@ -165,6 +167,22 @@ export class UserControllerService {
         });
     }
     /**
+     * getAllUsers
+     * @returns BaseResponse_List_UserVO_ OK
+     * @throws ApiError
+     */
+    public static getAllUsersUsingGet(): CancelablePromise<BaseResponse_List_UserVO_> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/api/user/listAllUsers',
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+    /**
      * userLogin
      * @param userLoginRequest userLoginRequest
      * @returns BaseResponse_LoginUserVO_ OK
@@ -216,6 +234,28 @@ export class UserControllerService {
             method: 'POST',
             url: '/api/user/register',
             body: userRegisterRequest,
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+    /**
+     * searchUsers
+     * @param tagNameList tagNameList
+     * @returns BaseResponse_List_User_ OK
+     * @throws ApiError
+     */
+    public static searchUsersUsingGet(
+        tagNameList?: Array<string>,
+    ): CancelablePromise<BaseResponse_List_User_> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/api/user/search/tags',
+            query: {
+                'tagNameList': tagNameList,
+            },
             errors: {
                 401: `Unauthorized`,
                 403: `Forbidden`,

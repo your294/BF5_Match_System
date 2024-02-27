@@ -10,6 +10,7 @@ const userLayout = () => import("../layouts/UserLayout.vue")
 const userLoginView = () => import ("../views/user/UserLoginView.vue")
 const userRegisterView = () => import("../views/user/UserRegistserView.vue")
 const noAuthView = () => import("../views/NotFoundView.vue")
+const userIndexView = () => import("../views/UserIndexView.vue")
 
 export const routes: Array<RouteRecordRaw> = [
     {
@@ -36,9 +37,10 @@ export const routes: Array<RouteRecordRaw> = [
                 }
             },
             {
-                path: "/user/edit",
+                path: "/user/edit/:EditValue",
                 name: "用户编辑",
                 component: userEditView,
+                props: true,
                 meta: {
                     access: ACCESS_ENUM.USER
                 }
@@ -47,8 +49,12 @@ export const routes: Array<RouteRecordRaw> = [
     },
     {
         path: "/",
+        redirect: "/index"
+    },
+    {
+        path: "/index",
         name: "主页",
-        component: testView
+        component: userIndexView
     },
     {
         path: "/search",

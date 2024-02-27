@@ -11,6 +11,8 @@ export const userInfoStore = defineStore('user', {
             userAvatar: "",
             userProfile: "空",
             tags: [],
+            email: "",
+            telephone: "",
         }
     }),
     actions: {

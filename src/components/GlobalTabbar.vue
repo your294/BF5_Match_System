@@ -4,16 +4,17 @@ import { showToast } from "vant"
 import { useRouter } from "vue-router"
 
 let router_map: Map<String, String> = new Map();
-router_map.set("index", "主页")
-router_map.set("search", "搜索")
-router_map.set("queue", "队伍")
-router_map.set("user_setting", "用户设置")
+router_map.set("index", "/index")
+router_map.set("search", "/search")
+router_map.set("queue", "/team")
+router_map.set("user_setting", "/user/setting")
 
 const router = useRouter();
 
 const active =  ref("index");
 const onChange = (name: string) => {
-    router.push({name: router_map.get(name) as any})
+    console.log(active.value);
+    router.push(router_map.get(name) as any)
 }
 </script>
 
