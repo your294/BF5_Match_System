@@ -2,6 +2,9 @@ package com.yupi.springbootinit.model.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import com.yupi.springbootinit.model.entity.Tag;
 import lombok.Data;
 
 /**
@@ -37,6 +40,21 @@ public class UserVO implements Serializable {
      * 用户角色：user/admin/ban
      */
     private String userRole;
+
+    /**
+     * json数组存储标签
+     */
+    private List<String> tags;
+
+    /**
+     * 电话
+     */
+    private String telephone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 创建时间

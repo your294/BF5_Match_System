@@ -76,6 +76,21 @@ public class User implements Serializable {
     private Date updateTime;
 
     /**
+     * json数组存储标签
+     */
+    private String tags;
+
+    /**
+     * 电话
+     */
+    private String telephone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
      * 是否删除
      */
     @TableLogic

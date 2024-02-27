@@ -1,6 +1,8 @@
 package com.yupi.springbootinit.model.dto.user;
 
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -26,6 +28,21 @@ public class UserUpdateMyRequest implements Serializable {
      * 简介
      */
     private String userProfile;
+
+    /**
+     * json数组存储标签
+     */
+    private List<String> tags;
+
+    /**
+     * 电话
+     */
+    private String telephone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     private static final long serialVersionUID = 1L;
 }
