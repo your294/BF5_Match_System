@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/layouts/*.vue", "src/components/*.vue", "src/router/*.ts", "src/views/*.vue", 
+  "./generated/**/*.ts", "./generated/*.ts", "src/stores/*.ts", "src/stores/**/*.ts"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
