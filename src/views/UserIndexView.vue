@@ -1,5 +1,5 @@
 <template>
-    <div id="UserIndexView" ref="swipeArea" style="overflow-y: scroll;">
+    <div id="UserIndexView" style="overflow-y: scroll;">
         <UserCardList :loading="loading" :user-list="userList" />
     </div>
 </template>
@@ -28,8 +28,6 @@ const loadUserData = async () => {
     }
     loading.value = false;
 }
-
-
 
 
 watchEffect(() => {
