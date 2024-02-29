@@ -54,6 +54,7 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
 import { onMounted } from 'vue';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
@@ -139,7 +140,13 @@ const closeTag = (tag: Tag) => {
 }
 
 const startSearchUser = () => {
-
+    historyTagList.value = searchContent.value.split(' ').filter(str => str === '');
+    router.push({
+        name: "搜索结果",
+        query: {
+            tagContent: searchContent.value,
+        }
+    });
 }
 
 const onCancel = () => {

@@ -62,6 +62,11 @@ export const routes: Array<RouteRecordRaw> = [
         component: searchView
     },
     {
+        path: "/searchResult",
+        name: "搜索结果",
+        component: () => import("@/views/SearchResultView.vue")
+    },
+    {
         path: "/Team",
         name: "队伍",
         component: teamView
