@@ -178,6 +178,7 @@ public class UserController {
         }
         // 返回根据标签搜索的用户
         List<User> userList = userService.searchUsersByTags(tagNameList);
+        List<UserVO> userVOList = userService.getUserVO(userList);
         return ResultUtils.success(userList);
     }
 
@@ -312,6 +313,18 @@ public class UserController {
         User loginUser = userService.getLoginUser(request);
         User user = new User();
         BeanUtils.copyProperties(userUpdateMyRequest, user);
+        StringBuilder tags = new StringBuilder("[");
+        int length = userUpdateMyRequest.getTags().size(), cnt = 0;
+        for (String tag : userUpdateMyRequest.getTags()) {
+            cnt++;
+            String add = "\"" + tag + "\"";
+            if (cnt != length) {
+                add += ',';
+            }
+            tags.append(add);
+        }
+        tags.append(']');
+        user.setTags(tags.toString());
         user.setId(loginUser.getId());
         boolean result = userService.updateById(user);
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
