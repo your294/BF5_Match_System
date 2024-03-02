@@ -2,12 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { Tag } from './Tag';
 export type UserVO = {
     createTime?: string;
     email?: string;
     id?: number;
-    tags?: Array<Tag>;
+    tags?: Array<string>;
     telephone?: string;
     userAvatar?: string;
     userName?: string;

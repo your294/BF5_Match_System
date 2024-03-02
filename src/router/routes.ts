@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from "vue-router"
 
 const testView = () => import("../views/TestView.vue")
 const searchView = () => import("../views/SearchView.vue")
-const teamView = () => import("../views/TeamView.vue")
+const teamView = () => import("../views/team/TeamView.vue")
 const userSettingView = () => import("../views/user/UserSettingView.vue")
 const userEditView = () => import("../views/user/UserEditView.vue")
 const userLayout = () => import("../layouts/UserLayout.vue")
@@ -70,6 +70,11 @@ export const routes: Array<RouteRecordRaw> = [
         path: "/Team",
         name: "队伍",
         component: teamView
+    },
+    {
+        path: "/Team/add",
+        name: "创建队伍",
+        component: () => import("@/views/team/TeamAddView.vue")
     },
     {
         path: "/noAuth",
